@@ -29,7 +29,9 @@
                 <th class="border-gray-200">Name</th>
                 <th class="border-gray-200">Email</th>
                 <th class="border-gray-200">Role</th>
+                @if(auth()->user()->role_id!=1)
                 <th class="border-gray-200 text-center">Action</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -52,10 +54,11 @@
                     <td>
                         <span class="text-center">{{ucfirst($user->role->role)}}</span>
                     </td>
+                    @if(auth()->user()->role_id!=1)
                     <td class="text-center">
                         <a  class="btn btn-xs edit-user" id="edit-user"
                            data-user-id='{{$user->id}}' title="Edit" data-toggle="tooltip" data-placement="bottom"
-                           href="{{route('editUser')}}">
+                           href="{{route('editUser',$user->id)}}">
                             <i class="fas fa-edit text-warning fs-5"></i>
                         </a>
                         <form method="post" action="{{route('delete')}}">
@@ -67,6 +70,7 @@
                             </button>
                         </form>
                     </td>
+                    @endif
 
                 </tr>
         @endforeach

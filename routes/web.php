@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/admin',[AdminController::class,'index'])->name('admin')->middleware(['auth']);
 Route::get('/adduser',[AdminController::class,'user'])->name('addUser')->middleware(['auth']);
-Route::get('/edituser',[AdminController::class,'editUser'])->name('editUser')->middleware(['auth']);
+Route::post('/updateuser',[AdminController::class,'updateUser'])->name('updateUser')->middleware(['auth']);
+Route::get('/edituser/{id}',[AdminController::class,'editUser'])->name('editUser')->middleware(['auth']);
 Route::post('/delete',[AdminController::class,'delete'])->name('delete');
 require __DIR__.'/auth.php';

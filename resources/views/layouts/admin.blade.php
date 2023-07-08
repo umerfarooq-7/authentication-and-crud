@@ -22,7 +22,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="route('admin')" class="text-nowrap logo-img">
             <img src="/assets/images/logos/dark-logo.svg" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -72,7 +72,7 @@
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-              <a href="https://adminmart.com/product/modernize-free-bootstrap-admin-dashboard/" target="_blank" class="btn btn-primary">Download Free</a>
+             <h4>{{auth()->user()->name}}</h4>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
@@ -92,7 +92,14 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                         
+                        </form>
+                   
                   </div>
                 </div>
               </li>

@@ -17,10 +17,37 @@ class AdminController extends Controller
    {
     return view('dashboard.addUser');
    }
-   public function editUser()
+   public function editUser($id)
    {
+     $users=User::find($id);
+     $roles=Role::all();
+
+    return view('dashboard.editUser',['users'=>$users,'roles'=>$roles]);
+   }
+   
+   public function updateUser(Request $request){
+$validate=$request->validate([
+   'name'=>'required',
+   'email'=>'required|email',
+   'pass'=>'min:8|required',
+   'role'=>'',
+]);
+      $user=User::find($request->id);
+ 
      
-    return view('dashboard.editUser');
+         $user['name']=$validate['name'];
+         $user['email']=$validate['email'];
+         $user['password']=bcrypt($validate['pass']);
+         $user->save();
+         return redirect()->route('admin');
+         
+      
+    
+   
+      return redirect()->route('admin');
+
+
+
    }
 
 
