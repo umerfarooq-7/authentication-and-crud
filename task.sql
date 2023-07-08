@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 08, 2023 at 10:17 AM
+-- Generation Time: Jul 08, 2023 at 02:05 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -122,15 +122,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$06rQlt38/C5BoDH.02Hj0OdsDfwij8ncx5CRudAmX9CoDYE1LJk.C', 2, NULL, '2023-07-08 03:53:59', '2023-07-08 03:53:59'),
-(3, 'user', 'user@gmail.com', NULL, '$2y$10$vT81sT69rF7DgjSwCdz07e0bhmMzrB/XVXbtPaHmqOkSf6YgP.ERK', 1, NULL, '2023-07-08 05:12:57', '2023-07-08 05:12:57');
+(4, 'User', 'user@gmail.com', NULL, '$2y$10$jQhC.LA5UCeTEo8WeRMqROzzG95TZ8TVE/r5LQjZmDVOTELT8IgY.', 1, NULL, '2023-07-08 08:58:35', '2023-07-08 08:58:35'),
+(5, 'Admin', 'admin@gmail.com', NULL, '$2y$10$fKcBY7tNxJU7i12G81DMdeimA0frE1pWiMioNWzZA./WRQdkyueR2', 2, NULL, '2023-07-08 08:58:35', '2023-07-08 08:58:35'),
+(6, 'Super Admin', 'superadmin@gmail.com', NULL, '$2y$10$QIUlRMEg3yhyrJOkdVx1jeH/nIxiINF1FuYZLatsMTX3/GRuQM7G2', 3, NULL, '2023-07-08 08:58:35', '2023-07-08 08:58:35');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
